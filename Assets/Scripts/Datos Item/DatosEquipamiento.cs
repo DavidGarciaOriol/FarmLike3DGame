@@ -13,6 +13,7 @@ public class DatosEquipamiento : DatosItem
         Pico
     }
 
+    [Header("Tipo de herramienta")]
     [SerializeField]
     private TipoHerramienta tipoHerramienta;
 }

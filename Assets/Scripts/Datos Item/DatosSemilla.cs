@@ -5,9 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Objetos/Semilla")]
 public class DatosSemilla : DatosItem
 {
-    // Tiempo necesario para que la semilla madure en una hortaliza
+    [Header("Información de la semilla")]
+    [SerializeField] // Tiempo necesario para que la semilla madure en una hortaliza
     private int diasParaCrecer;
 
-    // Hortaliza que proporcionará la semilla tras madurar
+    [SerializeField] // Hortaliza que proporcionará la semilla tras madurar
     private DatosItem hortalizaQueProporciona;
 }

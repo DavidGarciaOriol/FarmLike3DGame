@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb41a79060951f479b9a5b5d6518241, type: 3}
   m_Name: Semilla Cebolla
   m_EditorClassIdentifier: 
-  descripcion: 
-  imagen: {fileID: 0}
+  descripcion: Semilla de cebolla. Da cebolla al crecer.
+  imagen: {fileID: -1437926511, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
   modelado: {fileID: 0}
+  diasParaCrecer: 5
+  hortalizaQueProporciona: {fileID: 11400000, guid: 54ed8d6e80bb3fc4eb3e31a802d05f9d, type: 2}

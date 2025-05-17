@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Objetos/Objetos")]
 public class DatosItem : ScriptableObject
 {
+    [Header("Datos del objeto")]
     [SerializeField][TextArea] // Descripción del objeto
     private string descripcion;
 
