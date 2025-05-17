@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class ManagerInventario : MonoBehaviour
 {
-    private ManagerInventario instance;
-
-    public ManagerInventario Instance { get => instance; private set => instance = value; }
+    public static ManagerInventario Instance;
 
     // Patrón singleton en el manager de inventario
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
     }
 
