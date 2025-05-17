@@ -322,8 +322,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posicionJugador: {fileID: 2114874655}
-  offsetX: 0
-  offsetZ: 7
+  suavizado: 4.5
+  offsetZ: 7.5
+--- !u!1001 &1275027008
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 816554361753955337, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_Name
+      value: Terreno
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947517344437300472, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2680285e3ccfcdb43a28fdc7f0dea69f, type: 3}
 --- !u!1 &2114874652 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6198781676374869941, guid: 601bdcae5fe17be4092e6d8893819f9c, type: 3}
@@ -415,3 +472,4 @@ SceneRoots:
   - {fileID: 1162610455}
   - {fileID: 1128707099}
   - {fileID: 594005927746057048}
+  - {fileID: 1275027008}
