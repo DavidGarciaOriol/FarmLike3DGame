@@ -16,4 +16,6 @@ public class DatosItem : ScriptableObject
     private GameObject modelado;
 
     DatosEquipamiento equipamiento;
+
+    public Sprite Imagen { get => imagen; set => imagen = value; }
 }
