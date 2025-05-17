@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Regadera
   m_EditorClassIdentifier: 
   descripcion: "Herramienta \xFAtil para nutrir de agua tus cultivos."
-  imagen: {fileID: 0}
+  imagen: {fileID: -133852540, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
   modelado: {fileID: 0}
   tipoHerramienta: 1
