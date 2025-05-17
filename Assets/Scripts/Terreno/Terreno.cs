@@ -11,6 +11,10 @@ public class Terreno : MonoBehaviour
     // Rendereizador del terreno
     private Renderer renderizadorTerreno;
 
+    [Header("Selector")]
+    // Selector de interacción del personaje
+    [SerializeField] private GameObject selector;
+
     // Estados del terreno
     private enum EstadoTerreno
     {
@@ -30,6 +34,9 @@ public class Terreno : MonoBehaviour
 
         // Estado por defecto del terreno
         CambiarEstadoTerreno(EstadoTerreno.Hierba);
+
+        // Deseleccionar el terreno por defecto
+        Seleccionar(false);
     }
 
     // Update is called once per frame
@@ -79,5 +86,20 @@ public class Terreno : MonoBehaviour
     void CambiarRenderizadoTerreno(Material nuevoMaterialRenderizado)
     {
         renderizadorTerreno.material = nuevoMaterialRenderizado;
+    }
+
+    // Cambia el estado del selector para mostrarse o no
+    public void Seleccionar(bool condicion)
+    {
+        selector.SetActive(condicion);
+    }
+
+    // Cuando el jugador presiona el botón de interacción seleccioanndo el terreno
+    public void Interactuar()
+    {
+        Debug.Log("Interacción");
+        // Interacción
+        CambiarEstadoTerreno(EstadoTerreno.Arado);
+
     }
 }

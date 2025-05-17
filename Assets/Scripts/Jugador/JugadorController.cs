@@ -15,6 +15,9 @@ public class JugadorController : MonoBehaviour
     [SerializeField] float velocidadCaminar = 3f;
     [SerializeField] float velocidadCorrer = 5f;
 
+    [Header("Interacciones")]
+    InteraccionJugador interaccionJugador;
+
     private enum EstadoJugador
     {
         Idle,
@@ -28,17 +31,17 @@ public class JugadorController : MonoBehaviour
 
     private EstadoJugador estadoActualJugador = EstadoJugador.Idle;
 
-    private void Awake()
-    {
-        // Obtener componentes de movimiento
-        animator = GetComponent<Animator>();
-        controladorPersonaje = GetComponent<CharacterController>();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
+        // Obtener componente de animación
+        animator = GetComponent<Animator>();
 
+        // Obtener componente de control de personaje
+        controladorPersonaje = GetComponent<CharacterController>();
+
+        // Obtener componente de interacción
+        interaccionJugador = GetComponentInChildren<InteraccionJugador>();
     }
 
     // Update is called once per frame
@@ -46,6 +49,7 @@ public class JugadorController : MonoBehaviour
     {
         Moverse();
         Correr();
+        Interactuar();
     }
 
     // Se encarga del movimiento del jugador
@@ -103,9 +107,20 @@ public class JugadorController : MonoBehaviour
     }
 
     // Modifica el estado del jugador
-    private void CambiarEstadoJugador(EstadoJugador nuevoEstado)
+    void CambiarEstadoJugador(EstadoJugador nuevoEstado)
     {
         EstadoJugador estadoAntiguo = estadoActualJugador;
         estadoActualJugador = nuevoEstado;
+    }
+
+    void Interactuar()
+    {
+        if (Input.GetButtonDown("Click"))
+        {
+            // Interactuar
+            interaccionJugador.Interaccion();
+        }
+
+        //TODO: Interacción items
     }
 }
