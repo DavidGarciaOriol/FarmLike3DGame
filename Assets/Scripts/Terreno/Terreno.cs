@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DatosEquipamiento;
 
 public class Terreno : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class Terreno : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Cambios de estado del terreno
@@ -97,9 +98,35 @@ public class Terreno : MonoBehaviour
     // Cuando el jugador presiona el botón de interacción seleccioanndo el terreno
     public void Interactuar()
     {
-        Debug.Log("Interacción");
-        // Interacción
-        CambiarEstadoTerreno(EstadoTerreno.Arado);
+        // Comprueba la herramienta que el jugador tiene equipada
+        DatosItem slotHerramienta = ManagerInventario.Instance.HerramientaEquipada;
 
+        // Comprobamos que el objeto sea de tipo herramienta
+        DatosEquipamiento herramienta = slotHerramienta as DatosEquipamiento;
+        if (herramienta != null)
+        {
+            DatosEquipamiento.TipoHerramienta tipoDeHerramienta = herramienta.tipoHerramienta;
+            switch (tipoDeHerramienta)
+            {
+                case DatosEquipamiento.TipoHerramienta.Azada:
+                    if (estadoActualTerreno == EstadoTerreno.Hierba)
+                        CambiarEstadoTerreno(EstadoTerreno.Arado);
+                    else
+                        Debug.Log("Este terreno ya está arado.");
+                    break;
+
+                case DatosEquipamiento.TipoHerramienta.Regadera:
+                    if (estadoActualTerreno == EstadoTerreno.Arado)
+                        CambiarEstadoTerreno(EstadoTerreno.Regado);
+                    else
+                        Debug.Log("Debes arar el terreno para regarlo.");
+
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log("No tienes ninguna herramienta equipada.");
+        }
     }
 }

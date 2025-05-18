@@ -55,7 +55,40 @@ public class ManagerInventario : MonoBehaviour
     // Maneja el paso de la mano al inventario correspondiente
     public void ManoHaciaInventario(SlotInventario.TipoInventario tipoDeInventario)
     {
+        if (tipoDeInventario == SlotInventario.TipoInventario.Objeto)
+        {
+            // Iterar entre los slots de inventario, y encontrar el primero vacío
+            for (int i = 0; i < listaObjetos.Length; i++)
+            {
+                if (listaObjetos[i] == null)
+                {
+                    listaObjetos[i] = ObjetoEquipado;
 
+                    // Elimina el objeto de la mano
+                    ObjetoEquipado = null;
+
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for(int i = 0; i < listaHerramientas.Length; i++)
+            {
+                if (listaHerramientas[i] == null)
+                {
+                    listaHerramientas[i] = HerramientaEquipada;
+                    
+                    // Elimina la herramienta de la mano
+                    herramientaEquipada = null;
+
+                    break;
+                }
+            } 
+        }
+
+        // Actualizar cambios en la interfaz
+        UIManager.Instance.RenderizarInventario();
     }
 
     // Patrón singleton en el manager de inventario

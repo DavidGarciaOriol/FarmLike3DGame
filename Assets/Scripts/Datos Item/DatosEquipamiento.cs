@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Objetos/Equipamiento")]
 public class DatosEquipamiento : DatosItem
 {
-    enum TipoHerramienta
+    public enum TipoHerramienta
     {
         Azada,
         Regadera,
@@ -14,6 +14,5 @@ public class DatosEquipamiento : DatosItem
     }
 
     [Header("Tipo de herramienta")]
-    [SerializeField]
-    private TipoHerramienta tipoHerramienta;
+    public TipoHerramienta tipoHerramienta;
 }

@@ -1581,6 +1581,8 @@ MonoBehaviour:
   - {fileID: 1828759162}
   - {fileID: 1828759161}
   - {fileID: 1828759160}
+  slotHerramientaEnMano: {fileID: 2027140084}
+  slotObjetoEnMano: {fileID: 1275394236}
   textoNombreObjeto: {fileID: 1926723946}
   textoDescripcionObjeto: {fileID: 465975377}
 --- !u!1 &811016184
