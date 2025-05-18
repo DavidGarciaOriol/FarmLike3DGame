@@ -15,7 +15,7 @@ public class DatosItem : ScriptableObject
     [SerializeField] // Modelado del objeto que se verá en el juego
     private GameObject modelado;
 
-    DatosEquipamiento equipamiento;
-
     public Sprite Imagen { get => imagen; set => imagen = value; }
+    public string Descripcion { get => descripcion; set => descripcion = value; }
+    public GameObject Modelado { get => modelado; set => modelado = value; }
 }

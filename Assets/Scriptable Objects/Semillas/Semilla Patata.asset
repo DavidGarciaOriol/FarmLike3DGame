@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   descripcion: "Semilla de Patata. Da la mayor obra maestra culinaria jam\xE1s inventada,
     por suerte legal en casi todos los pa\xEDses: Patata."
-  imagen: {fileID: -1437926511, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
+  imagen: {fileID: -967617198, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
   modelado: {fileID: 0}
   diasParaCrecer: 4
   hortalizaQueProporciona: {fileID: 11400000, guid: e55e561623e6cbd40886cda9757d230d, type: 2}

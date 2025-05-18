@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   descripcion: "Semilla de tomate. Da tomate al crecer. Qu\xE9 esperabas a estas
     alturas."
-  imagen: {fileID: -1437926511, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
+  imagen: {fileID: -967617198, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
   modelado: {fileID: 0}
   diasParaCrecer: 6
   hortalizaQueProporciona: {fileID: 11400000, guid: 26d98252e82607c4da6847d8c4e4380d, type: 2}

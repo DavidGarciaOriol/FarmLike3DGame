@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hacha
   m_EditorClassIdentifier: 
   descripcion: "Herramienta \xFAtil para talar \xE1rboles y tocones de madera."
-  imagen: {fileID: -1018085282, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
+  imagen: {fileID: -1023797811, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
   modelado: {fileID: 0}
   tipoHerramienta: 2

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pico
   m_EditorClassIdentifier: 
   descripcion: "Herramienta \xFAtil para destruir rocas y extraer minerales."
-  imagen: {fileID: 1642515096, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
+  imagen: {fileID: -516030206, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
   modelado: {fileID: 0}
   tipoHerramienta: 3

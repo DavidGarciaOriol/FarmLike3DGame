@@ -33,6 +33,11 @@ public class ManagerInventario : MonoBehaviour
     [SerializeField] // Objeto equipado en la mano
     private DatosItem objetoEquipado = null;
 
+    public DatosItem[] ListaHerramientas { get => listaHerramientas; set => listaHerramientas = value; }
+    public DatosItem HerramientaEuipada { get => herramientaEuipada; set => herramientaEuipada = value; }
+    public DatosItem[] ListaObjetos { get => listaObjetos; set => listaObjetos = value; }
+    public DatosItem ObjetoEquipado { get => objetoEquipado; set => objetoEquipado = value; }
+
     // Start is called before the first frame update
     void Start()
     {

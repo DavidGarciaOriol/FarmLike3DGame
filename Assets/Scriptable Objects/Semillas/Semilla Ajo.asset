@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Semilla Ajo
   m_EditorClassIdentifier: 
   descripcion: Semilla de ajo. Da ajo al crecer.
-  imagen: {fileID: -1437926511, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
+  imagen: {fileID: -967617198, guid: d53b39d746edd014585c1537efa1bf0d, type: 3}
   modelado: {fileID: 0}
   diasParaCrecer: 5
   hortalizaQueProporciona: {fileID: 11400000, guid: 5d36ec35d9a456e4a95e6c1eecbd21b3, type: 2}
