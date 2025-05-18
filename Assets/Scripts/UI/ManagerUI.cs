@@ -4,12 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class ManagerUI : MonoBehaviour, IObservadorDeTiempo
 {
-    public static UIManager Instance { get; private set; }
+    public static ManagerUI Instance { get; private set; }
 
     [Header("HUD - Información")]
     [SerializeField] private Image slotHerramientaEquipada;
+
+    [SerializeField] private TextMeshProUGUI tiempoTexto;
+    [SerializeField] private TextMeshProUGUI fechaTexto;
 
     [Header("Sistema de Inventario")]
     [SerializeField] private GameObject panelInventario;
@@ -41,6 +44,9 @@ public class UIManager : MonoBehaviour
     {
         RenderizarInventario();
         AsignarIndicesSlots();
+
+        // Agrega el UI Manager
+        ManagerTiempo.Instance.RegistrarObservador(this);
     }
 
     public void AsignarIndicesSlots()
@@ -114,5 +120,16 @@ public class UIManager : MonoBehaviour
 
         textoNombreObjeto.text = datos.name;
         textoDescripcionObjeto.text = datos.Descripcion;
+    }
+
+    // Maneja el HUD según el tiempo
+    public void ActualizacionDeReloj(TiempoDeJuego tiempoDeJuego)
+    {
+        // Maneja el tiempo
+
+        int horas = tiempoDeJuego.Hora;
+        int minutos = tiempoDeJuego.Minuto;
+
+        tiempoTexto.text = horas.ToString("00") + ":" + minutos.ToString("00");
     }
 }

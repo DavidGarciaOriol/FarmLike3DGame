@@ -49,7 +49,7 @@ public class ManagerInventario : MonoBehaviour
         }
 
         // Actualizamos los cambios en la interfaz
-        UIManager.Instance.RenderizarInventario();
+        ManagerUI.Instance.RenderizarInventario();
     }
 
     // Maneja el paso de la mano al inventario correspondiente
@@ -88,7 +88,7 @@ public class ManagerInventario : MonoBehaviour
         }
 
         // Actualizar cambios en la interfaz
-        UIManager.Instance.RenderizarInventario();
+        ManagerUI.Instance.RenderizarInventario();
     }
 
     // Patrón singleton en el manager de inventario

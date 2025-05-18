@@ -46,13 +46,13 @@ public class SlotInventario : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     // en la caja de información del inventario
     public void OnPointerEnter(PointerEventData eventData)
     {
-        UIManager.Instance.MostrarInformacionObjeto(objetoAMostrar);
+        ManagerUI.Instance.MostrarInformacionObjeto(objetoAMostrar);
     }
 
     // Oculta la información cuando el jugador aparta el ratón del objeto
     public void OnPointerExit(PointerEventData eventData)
     {
-        UIManager.Instance.MostrarInformacionObjeto(null);
+        ManagerUI.Instance.MostrarInformacionObjeto(null);
     }
 
     public virtual void OnPointerClick(PointerEventData eventData)
