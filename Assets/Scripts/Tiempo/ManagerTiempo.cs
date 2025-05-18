@@ -73,6 +73,10 @@ public class ManagerTiempo : MonoBehaviour
         posicionDelSol.eulerAngles = new Vector3(anguloDelSol, 0, 0);
     }
 
+    public TiempoDeJuego ObtenerTiempoDeJuego()
+    {
+        return new TiempoDeJuego(tiempoDeJuego);
+    }
 
     // Agrega el objeto a la lista de observadores
     public void RegistrarObservador(IObservadorDeTiempo observador)

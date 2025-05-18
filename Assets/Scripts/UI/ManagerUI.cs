@@ -125,11 +125,18 @@ public class ManagerUI : MonoBehaviour, IObservadorDeTiempo
     // Maneja el HUD según el tiempo
     public void ActualizacionDeReloj(TiempoDeJuego tiempoDeJuego)
     {
-        // Maneja el tiempo
+        // Maneja la hora
 
         int horas = tiempoDeJuego.Hora;
         int minutos = tiempoDeJuego.Minuto;
 
         tiempoTexto.text = horas.ToString("00") + ":" + minutos.ToString("00");
+
+        // Maneja la fecha
+        int dia = tiempoDeJuego.Dia;
+        string estacion = tiempoDeJuego.estacionActual.ToString();
+        string diaDeLaSemana = tiempoDeJuego.ObtenerDiaDeLaSemana().ToString();
+
+        fechaTexto.text = estacion + " " + dia + " (" + diaDeLaSemana.Substring(0,3) + ")";
     }
 }

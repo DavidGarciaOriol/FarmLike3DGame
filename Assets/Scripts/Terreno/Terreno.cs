@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static DatosEquipamiento;
 
-public class Terreno : MonoBehaviour
+public class Terreno : MonoBehaviour, IObservadorDeTiempo
 {
     [Header("Materiales del terreno")]
     [SerializeField]
@@ -27,6 +27,8 @@ public class Terreno : MonoBehaviour
     // Estado actual del terreno
     private EstadoTerreno estadoActualTerreno;
 
+    private TiempoDeJuego tiempoRegado;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,9 @@ public class Terreno : MonoBehaviour
 
         // Deseleccionar el terreno por defecto
         Seleccionar(false);
+
+        // Agregar a la lista de observadores del manager de tiempo
+        ManagerTiempo.Instance.RegistrarObservador(this);
     }
 
     // Update is called once per frame
@@ -76,6 +81,7 @@ public class Terreno : MonoBehaviour
             case EstadoTerreno.Regado:
                 // Cambia a material terreno regado
                 nuevoMaterial = terrenoRegado;
+                tiempoRegado = ManagerTiempo.Instance.ObtenerTiempoDeJuego();
                 break;
         }
 
@@ -127,6 +133,20 @@ public class Terreno : MonoBehaviour
         else
         {
             Debug.Log("No tienes ninguna herramienta equipada.");
+        }
+    }
+
+    public void ActualizacionDeReloj(TiempoDeJuego tiempoDeJuego)
+    {
+        if (estadoActualTerreno == EstadoTerreno.Regado)
+        {
+            int horasTranscurridas = TiempoDeJuego.CompararTiemposDeJuego(tiempoRegado, tiempoDeJuego);
+            Debug.Log(horasTranscurridas + " Horas desde que se regó.");
+
+            if (horasTranscurridas > 24)
+            {
+                CambiarEstadoTerreno(EstadoTerreno.Arado);
+            }
         }
     }
 }

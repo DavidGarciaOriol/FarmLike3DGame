@@ -17,13 +17,13 @@ public class TiempoDeJuego
 
     public enum DiaDeLaSemana
     {
+        Domingo,
         Lunes,
         Martes,
         Miercoles,
         Jueves,
         Viernes,
-        Sabado,
-        Domingo
+        Sabado
     }
 
     public Estacion estacionActual;
@@ -37,6 +37,7 @@ public class TiempoDeJuego
     public int Hora { get => hora; set => hora = value; }
     public int Minuto { get => minuto; set => minuto = value; }
 
+    // Constructor general de la clase
     public TiempoDeJuego(int anyo, Estacion estacionActual, int dia, int hora, int minuto)
     {
         this.Anyo = anyo;
@@ -44,6 +45,17 @@ public class TiempoDeJuego
         this.Dia = dia;
         this.Hora = hora;
         this.Minuto = minuto;
+    }
+
+    // Constructor para crear una nueva instancia
+    // de marca de tiempo a partir de una ya existente
+    public TiempoDeJuego(TiempoDeJuego tiempo)
+    {
+        this.Anyo = tiempo.anyo;
+        this.estacionActual = tiempo.estacionActual;
+        this.Dia = tiempo.dia;
+        this.Hora = tiempo.hora;
+        this.Minuto = tiempo.minuto;
     }
 
     public void ActualizarReloj()
@@ -112,5 +124,22 @@ public class TiempoDeJuego
     public static int AnyosADias(int anyos)
     {
         return anyos * 4 * 28;
+    }
+
+    public static int CompararTiemposDeJuego(TiempoDeJuego tiempo1, TiempoDeJuego tiempo2)
+    {
+        int tiempo1Horas = DiasAHora(AnyosADias(tiempo1.anyo))
+            + DiasAHora(EstacionADias(tiempo1.estacionActual))
+            + DiasAHora(tiempo1.dia)
+            + tiempo1.hora;
+
+        int tiempo2Horas = DiasAHora(AnyosADias(tiempo2.anyo))
+            + DiasAHora(EstacionADias(tiempo2.estacionActual))
+            + DiasAHora(tiempo2.dia)
+            + tiempo2.hora;
+
+        int diferencia = tiempo2Horas - tiempo1Horas;
+
+        return Mathf.Abs(diferencia);
     }
 }
