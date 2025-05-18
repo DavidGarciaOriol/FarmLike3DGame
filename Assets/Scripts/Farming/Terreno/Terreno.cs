@@ -29,6 +29,10 @@ public class Terreno : MonoBehaviour, IObservadorDeTiempo
 
     private TiempoDeJuego tiempoRegado;
 
+    [Header("Cultivos")]
+    [SerializeField] private GameObject cultivoPrefab;
+    private ComportamientoCultivo cultivoPlantado = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,6 +110,10 @@ public class Terreno : MonoBehaviour, IObservadorDeTiempo
     {
         // Comprueba la herramienta que el jugador tiene equipada
         DatosItem slotHerramienta = ManagerInventario.Instance.HerramientaEquipada;
+        if (slotHerramienta == null)
+        {
+            return;
+        }
 
         // Comprobamos que el objeto sea de tipo herramienta
         DatosEquipamiento herramienta = slotHerramienta as DatosEquipamiento;
@@ -129,10 +137,25 @@ public class Terreno : MonoBehaviour, IObservadorDeTiempo
 
                     break;
             }
+
+            return;
         }
-        else
+
+        DatosSemilla semilla = slotHerramienta as DatosSemilla;
+
+        /// Condiciones para plantar semilla
+        /// 1. Tiene una semilla equipada.
+        /// 2. El terreno debe estar o arado o regado.
+        /// 3. No hay un cultivo ya plantado.
+        if (semilla != null && estadoActualTerreno != EstadoTerreno.Hierba && cultivoPlantado == null)
         {
-            Debug.Log("No tienes ninguna herramienta equipada.");
+            GameObject cultivoGameObject = Instantiate(cultivoPrefab, transform);
+
+            cultivoGameObject.transform.position = new Vector3 (transform.position.x, 0f, transform.position.z);
+
+            cultivoPlantado = cultivoGameObject.GetComponent<ComportamientoCultivo>();
+
+            cultivoPlantado.Plantar(semilla);
         }
     }
 
@@ -142,6 +165,12 @@ public class Terreno : MonoBehaviour, IObservadorDeTiempo
         {
             int horasTranscurridas = TiempoDeJuego.CompararTiemposDeJuego(tiempoRegado, tiempoDeJuego);
             Debug.Log(horasTranscurridas + " Horas desde que se regó.");
+
+            // El cultivo plantado crece de haberlo
+            if (cultivoPlantado != null)
+            {
+                cultivoPlantado.Crecer();
+            }
 
             if (horasTranscurridas > 24)
             {

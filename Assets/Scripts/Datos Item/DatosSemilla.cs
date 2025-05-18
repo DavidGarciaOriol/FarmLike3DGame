@@ -11,4 +11,11 @@ public class DatosSemilla : DatosItem
 
     [SerializeField] // Hortaliza que proporcionará la semilla tras madurar
     private DatosItem hortalizaQueProporciona;
+
+    [SerializeField]
+    private GameObject semillero;
+
+    public GameObject Semillero { get => semillero; set => semillero = value; }
+    public DatosItem HortalizaQueProporciona { get => hortalizaQueProporciona; set => hortalizaQueProporciona = value; }
+    public int DiasParaCrecer { get => diasParaCrecer; set => diasParaCrecer = value; }
 }
