@@ -8,15 +8,21 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
+    [Header("HUD - Información")]
+    [SerializeField] private Image slotHerramientaEquipada;
+
     [Header("Sistema de Inventario")]
     [SerializeField] private GameObject panelInventario;
     [SerializeField] private SlotInventario[] slotsHerramientas;
     [SerializeField] private SlotInventario[] slotsObjetos;
 
+    [Header("Objetos Equipados")]
+    [SerializeField] private SlotInventarioMano slotHerramientaEnMano;
+    [SerializeField] private SlotInventarioMano slotObjetoEnMano;
+
     [Header("Información sobre Objetos")]
     [SerializeField] private TextMeshProUGUI textoNombreObjeto;
     [SerializeField] private TextMeshProUGUI textoDescripcionObjeto;
-
 
     // Patrón singleton en el manager de UI
     private void Awake()
@@ -34,6 +40,16 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         RenderizarInventario();
+        AsignarIndicesSlots();
+    }
+
+    public void AsignarIndicesSlots()
+    {
+        for (int i = 0; i < slotsHerramientas.Length; i++) 
+        {
+            slotsHerramientas[i].AsignarIndiceSlot(i);
+            slotsObjetos[i].AsignarIndiceSlot(i);
+        }
     }
 
     // Renderiza la pantalla de inventario para que refleje el del usuario
@@ -50,6 +66,24 @@ public class UIManager : MonoBehaviour
 
         // Renderiza el panel de objetos
         RenderizarPanelInventario(slotsObjetosInventario, slotsObjetos);
+
+        // Renderiza los slots de objetos equipados
+        slotHerramientaEnMano.Mostrar(ManagerInventario.Instance.HerramientaEquipada);
+        slotObjetoEnMano.Mostrar(ManagerInventario.Instance.ObjetoEquipado);
+
+        // Cogemos la herramienta equipada
+        DatosItem herramientaEquipada = ManagerInventario.Instance.HerramientaEquipada;
+
+        if (herramientaEquipada != null)
+        {
+            slotHerramientaEquipada.sprite = herramientaEquipada.Imagen;
+
+            slotHerramientaEquipada.gameObject.SetActive(true);
+
+            return;
+        }
+
+        slotHerramientaEquipada.gameObject.SetActive(false);
     }
 
     // Renderiza un panel del inventario
